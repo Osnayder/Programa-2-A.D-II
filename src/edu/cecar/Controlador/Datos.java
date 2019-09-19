@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package edu.cecar.Controlador;
 
 import edu.cecar.Modelo.Album;
@@ -17,11 +11,11 @@ import java.util.logging.Logger;
 import us.monoid.json.JSONArray;
 import us.monoid.json.JSONException;
 
-/** Interface: UsuarioControlador
+/** Clase: Datos
  * 
  * @version: 0.1
  *  
- * @sincelejo: 21/08/2019
+ * @sincelejo: 15/09/2019
  * 
  * Fecha de Modificación: 
  * 
@@ -29,6 +23,7 @@ import us.monoid.json.JSONException;
  * 
  * Copyrigth: CECAR
  */
+
 public class Datos {
      
     Vector<Usuario> vectorUsuarios = new Vector<Usuario>();
@@ -37,13 +32,13 @@ public class Datos {
     Vector<Album> vectorAlbumes = new Vector<Album>();
     Vector<Foto>    vectorFotos = new Vector<Foto>();
     
-    SingletonDescarga s = new SingletonDescarga();
+    SingletonDescarga singleton = new SingletonDescarga();
     JSONArray ArrayResult = null; 
     
     
     public void cargarUsuarios(){
         Usuario usuario = new Usuario();
-        ArrayResult = s.singletonUsuario();
+        ArrayResult = singleton.singletonUsuario();
       
         for(int i=0; i<ArrayResult.length(); i++){
             try {
@@ -61,13 +56,12 @@ public class Datos {
             } catch (JSONException ex) {
                 Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
             }            
-       }
-            
+       }        
     }
     
     public void cargarComentarios(){
         Comentario comentario = new Comentario();
-        ArrayResult = s.singletonComentario();
+        ArrayResult = singleton.singletonComentario();
         
         for(int i=0; i<ArrayResult.length(); i++){
             try {
@@ -85,7 +79,7 @@ public class Datos {
     
     public void cargarPublicaciones(){
         Publicacion publicacion = new Publicacion();
-        ArrayResult = s.singletonPublicacion();
+        ArrayResult = singleton.singletonPublicacion();
         
         for(int i=0; i<ArrayResult.length(); i++){
             try {
@@ -102,7 +96,7 @@ public class Datos {
     
     public void cargarAlbumes(){
         Album album = new Album();
-        ArrayResult = s.singletonAlbum();
+        ArrayResult = singleton.singletonAlbum();
         
         for(int i=0; i<ArrayResult.length(); i++){
             try {
@@ -118,7 +112,7 @@ public class Datos {
     
     public void cargarFotos(){
          Foto foto = new Foto();
-         ArrayResult = s.singletonFoto();
+         ArrayResult = singleton.singletonFoto();
          
          for(int i=0; i<ArrayResult.length(); i++){
             try {

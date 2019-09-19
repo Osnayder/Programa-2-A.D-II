@@ -4,7 +4,7 @@ package edu.cecar.Modelo;
  * 
  * @version: 0.1
  *  
- * @sincelejo: 21/08/2019
+ * @sincelejo: 15/09/2019
  * 
  * Fecha de Modificación: 
  * 
@@ -12,6 +12,7 @@ package edu.cecar.Modelo;
  * 
  * Copyrigth: CECAR
  */
+
 public class Album {
     int id;
     int user_id;

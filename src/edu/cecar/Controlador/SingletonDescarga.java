@@ -1,11 +1,24 @@
 package edu.cecar.Controlador;
 
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import us.monoid.json.JSONArray;
 import us.monoid.json.JSONObject;
 import us.monoid.web.Resty;
 
+/** Clase: SingletonDescarga
+ * 
+ * @version: 0.1
+ *  
+ * @sincelejo: 15/09/2019
+ * 
+ * Fecha de Modificación: 
+ * 
+ * @author: Osnayder Conde Rodriguez
+ * 
+ * Copyrigth: CECAR
+ */
 
 
 public class SingletonDescarga {

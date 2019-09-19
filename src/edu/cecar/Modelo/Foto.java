@@ -1,10 +1,10 @@
 package edu.cecar.Modelo;
 
-/** Clase: foto
+/** Clase: Foto
  * 
  * @version: 0.1
  *  
- * @sincelejo: 21/08/2019
+ * @sincelejo: 15/09/2019
  * 
  * Fecha de Modificación: 
  * 
