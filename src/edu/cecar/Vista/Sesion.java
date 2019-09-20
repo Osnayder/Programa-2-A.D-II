@@ -1,27 +1,45 @@
 package edu.cecar.Vista;
 
 import edu.cecar.Controlador.SingletonDescarga;
+import edu.cecar.Modelo.Album;
+import edu.cecar.Modelo.Comentario;
+import edu.cecar.Modelo.Foto;
+import edu.cecar.Modelo.Publicacion;
 import edu.cecar.Modelo.Usuario;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
 public class Sesion extends javax.swing.JFrame {
 
     private SingletonDescarga singletonDescarga = new SingletonDescarga();
-    private ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
+    
+    private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+    private ArrayList<Comentario> listaComentarios     = new ArrayList<Comentario>();
+    private ArrayList<Publicacion> listaPublicaciones = new ArrayList<Publicacion>();
+    private ArrayList<Album> listaAlbumes = new ArrayList<Album>();
+    private ArrayList<Foto>   listaFotos = new ArrayList<Foto>();
     
     public Sesion() {    
         initComponents();
+        this.getContentPane().setBackground(Color.WHITE);
     }
+        
         Object[][] datos = {};
         Object[][] datos1 = {};
-        String[] columnas = {"Columna","Columna2"};
-        String[] columnas1 = {"Id","Estado","Primer Nombre","Apellido","Género","Telefono","dob","Dirrección","Email","Sitio Web"};
+        Object[][] datos2 = {};
         
-        DefaultTableModel modelo = new DefaultTableModel(datos,columnas);
-        DefaultTableModel modelo1 = new DefaultTableModel(datos1,columnas1);
+        String[] cPublicacaiones = {" ID publicacion", " Titulo ", " Cuerpo"};
+        String[] cUsuarios = {"Id","Estado","Primer Nombre","Apellido","Género","Telefono","dob","Dirrección","Email","Sitio Web"};
+        String[] cComentarios = {"  ID Comentario ", "  Nombre ", "  Email ", "  Cuerpo "};
+        
+        DefaultTableModel modeloPublicaciones = new DefaultTableModel(datos,cPublicacaiones);
+        DefaultTableModel modeloComentarios = new DefaultTableModel(datos2,cComentarios);
+        DefaultTableModel modeloUsuarios = new DefaultTableModel(datos1,cUsuarios);
+        
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -35,18 +53,33 @@ public class Sesion extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sesion Sistema");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("    Identificacion");
+        jPanel1.setLayout(null);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jTextField1);
+        jTextField1.setBounds(10, 12, 130, 30);
 
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -54,131 +87,174 @@ public class Sesion extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(150, 10, 90, 30);
 
-        jTable1.setModel(modelo);
+        jTable1.setModel(modeloPublicaciones);
         jScrollPane1.setViewportView(jTable1);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 70, 452, 150);
+
         jLabel1.setText("Nombre:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(260, 10, 70, 30);
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(340, 10, 130, 30);
 
-        jLabel2.setText("Ninguno");
+        jLabel5.setText("Lista de Publiaciones");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(10, 45, 180, 20);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(77, 77, 77)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(493, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        jTable3.setModel(modeloComentarios);
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel1.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 250, 910, 150);
+
+        jLabel8.setText("Lista de Comentarios");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(10, 220, 240, 30);
 
         jTabbedPane1.addTab("Busqueda", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setLayout(null);
+
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 153, 255));
         jButton2.setText("Listar");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(267, 10, 90, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(0, 153, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono" }));
+        jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(143, 10, 110, 30);
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 255));
         jLabel3.setText("Criterio Listado");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(10, 10, 130, 30);
 
-        jTable2.setModel(modelo1);
+        jTable2.setBackground(new Color(65, 65, 65));
+        jTable2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 1, new java.awt.Color(255, 255, 255)));
+        jTable2.setFont(new Font( "Verdana",Font.PLAIN ,12 ));
+        jTable2.setForeground(new java.awt.Color(255, 255, 255));
+        jTable2.setModel(modeloUsuarios);
+        jTable2.setToolTipText("");
         jScrollPane2.setViewportView(jTable2);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1))
-                        .addGap(3, 3, 3))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel2.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 64, 935, 250);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/cecar/Recursos/lista.png"))); // NOI18N
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(892, 0, 45, 67);
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel6.setText("Lista de personas, si desea puede listar de acuerdo a varios criterios.");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(382, 11, 500, 20);
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel7.setText("Segun el criterio que elija se ordenará en la tabla");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(380, 30, 390, 17);
 
         jTabbedPane1.addTab("Listas", jPanel2);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 960, 320));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 960, 440));
 
-        setSize(new java.awt.Dimension(1016, 400));
+        setSize(new java.awt.Dimension(1016, 514));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                
+        int id = Integer.parseInt(jTextField1.getText());
+        boolean estado = false;
+        String[] lista = new String[3];
+        String[] lista2 = new String[4];
+        
+        for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
+            listaUsuarios.add(singletonDescarga.getUsuarios(i));
+        }
+        
+        for(int i=0; i<singletonDescarga.getSizePublicaciones(); i++){
+            listaPublicaciones.add(singletonDescarga.getPublicacion(i));
+        }
+             
+        for(int i=0; i<singletonDescarga.getSizeComentarios(); i++){
+            listaComentarios.add(singletonDescarga.getComentario(i));
+        }
       
+        for(int i=0; i<20; i++){
+            if(id==listaUsuarios.get(i).getId()){
+                jLabel2.setText(listaUsuarios.get(i).getFirt_name());
+            }
+            if(id==listaPublicaciones.get(i).getId()){
+                lista[0] = ""+listaPublicaciones.get(i).getUser_id();
+                lista[1] = listaPublicaciones.get(i).getTitle();
+                lista[2]= listaPublicaciones.get(i).getBody();
+                modeloPublicaciones.addRow(lista);
+                estado = true;
+            }
+        }
+        
+        for(int i=0; i<20; i++){
+            if(id==listaPublicaciones.get(i).getId()){
+                lista2[0] = ""+listaComentarios.get(i).getPost_id();
+                lista2[1] = listaComentarios.get(i).getName();
+                lista2[2] = listaComentarios.get(i).getEmail();
+                lista2[3] = listaComentarios.get(i).getBody();
+                modeloComentarios.addRow(lista2);
+            }
+        }
+        
+        if(!estado){
+            JOptionPane.showMessageDialog(this,"No se encontro coincidencia",
+                                                                 "Error de Busqueda",JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String[] fila = new String[10];
         
         for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
-            listaUsuario.add(singletonDescarga.getUsuarios(i));
+            listaUsuarios.add(singletonDescarga.getUsuarios(i));
         }
         
-        for(int i=0; i<listaUsuario.size(); i++){
-                fila[0] = ""+listaUsuario.get(i).getId();
-                fila[1] = listaUsuario.get(i).getStatus();
-                fila[2] = listaUsuario.get(i).getFirt_name();
-                fila[3] = listaUsuario.get(i).getLast_name();
-                fila[4] = listaUsuario.get(i).getGender();
-                fila[5] = listaUsuario.get(i).getPhone();
-                fila[6] = listaUsuario.get(i).getDob();
-                fila[7] = listaUsuario.get(i).getAddress();
-                fila[8] = listaUsuario.get(i).getEmail();
-                fila[9] = listaUsuario.get(i).getWebsite();
-            modelo1.addRow(fila);
+        for(int i=0; i<listaUsuarios.size(); i++){
+                fila[0] = ""+listaUsuarios.get(i).getId();
+                fila[1] = listaUsuarios.get(i).getStatus();
+                fila[2] = listaUsuarios.get(i).getFirt_name();
+                fila[3] = listaUsuarios.get(i).getLast_name();
+                fila[4] = listaUsuarios.get(i).getGender();
+                fila[5] = listaUsuarios.get(i).getPhone();
+                fila[6] = listaUsuarios.get(i).getDob();
+                fila[7] = listaUsuarios.get(i).getAddress();
+                fila[8] = listaUsuarios.get(i).getEmail();
+                fila[9] = listaUsuarios.get(i).getWebsite();
+            modeloUsuarios.addRow(fila);
         }
             
-        
+        jButton2.disable();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     
     
@@ -222,13 +298,20 @@ public class Sesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
