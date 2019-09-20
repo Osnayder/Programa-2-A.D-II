@@ -137,7 +137,8 @@ public class Principal extends javax.swing.JFrame {
        if(jTextField1.getText().equals("root") && jPasswordField1.getText().equals("root")){
            Sesion sesion = new Sesion(); 
            sesion.setVisible(true);
-           this.setVisible(false);
+           this.dispose();
+           
        }else{
            JOptionPane.showMessageDialog(this,"  Usuario Invalido\nVerifique Los Campos de Dato de Usuario",
                                                                  "Error de Acceso",JOptionPane.ERROR_MESSAGE);
