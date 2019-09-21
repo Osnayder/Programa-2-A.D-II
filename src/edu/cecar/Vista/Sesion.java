@@ -1,5 +1,6 @@
 package edu.cecar.Vista;
 
+import static com.sun.webkit.graphics.WCImage.getImage;
 import edu.cecar.Controlador.SingletonDescarga;
 import edu.cecar.Modelo.Album;
 import edu.cecar.Modelo.Comentario;
@@ -9,6 +10,16 @@ import edu.cecar.Modelo.Usuario;
 import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -31,15 +42,20 @@ public class Sesion extends javax.swing.JFrame {
         Object[][] datos = {};
         Object[][] datos1 = {};
         Object[][] datos2 = {};
+        Object[][] datos3 = {};
+        Object[][] datos4 = {};
         
         String[] cPublicacaiones = {" ID publicacion", " Titulo ", " Cuerpo"};
         String[] cUsuarios = {"Id","Estado","Primer Nombre","Apellido","Género","Telefono","dob","Dirrección","Email","Sitio Web"};
         String[] cComentarios = {"  ID Comentario ", "  Nombre ", "  Email ", "  Cuerpo "};
+        String[] cAlbumes = {" ID Album "," Titulo "};
+        String[] cFotos = {"  ID  "," Titulo "," URl Imagen "," Miniatura "};
         
         DefaultTableModel modeloPublicaciones = new DefaultTableModel(datos,cPublicacaiones);
         DefaultTableModel modeloComentarios = new DefaultTableModel(datos2,cComentarios);
         DefaultTableModel modeloUsuarios = new DefaultTableModel(datos1,cUsuarios);
-        
+        DefaultTableModel modeloAlbums = new DefaultTableModel(datos3,cAlbumes);
+        DefaultTableModel modeloFotos = new DefaultTableModel(datos4,cFotos);
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,6 +73,14 @@ public class Sesion extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -102,6 +126,7 @@ public class Sesion extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(340, 10, 130, 30);
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         jLabel5.setText("Lista de Publiaciones");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(10, 45, 180, 20);
@@ -112,9 +137,41 @@ public class Sesion extends javax.swing.JFrame {
         jPanel1.add(jScrollPane3);
         jScrollPane3.setBounds(10, 250, 910, 150);
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
         jLabel8.setText("Lista de Comentarios");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(10, 220, 240, 30);
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        jLabel9.setText("Lista de Albumes");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(490, 44, 130, 20);
+
+        jTable4.setModel(modeloAlbums);
+        jScrollPane4.setViewportView(jTable4);
+
+        jPanel1.add(jScrollPane4);
+        jScrollPane4.setBounds(480, 70, 452, 150);
+
+        jTable5.setModel(modeloFotos);
+        jScrollPane5.setViewportView(jTable5);
+
+        jPanel1.add(jScrollPane5);
+        jScrollPane5.setBounds(10, 430, 570, 150);
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        jLabel10.setText("Lista de Fotos");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(10, 400, 120, 30);
+
+        jLabel11.setText("imagen");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(610, 430, 160, 150);
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 10)); // NOI18N
+        jLabel12.setText("Foto del Usuario");
+        jPanel1.add(jLabel12);
+        jLabel12.setBounds(630, 404, 100, 30);
 
         jTabbedPane1.addTab("Busqueda", jPanel1);
 
@@ -175,9 +232,9 @@ public class Sesion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Listas", jPanel2);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 960, 440));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 960, 680));
 
-        setSize(new java.awt.Dimension(1016, 514));
+        setSize(new java.awt.Dimension(1016, 754));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -186,6 +243,9 @@ public class Sesion extends javax.swing.JFrame {
         boolean estado = false;
         String[] lista = new String[3];
         String[] lista2 = new String[4];
+        String[] lista3 = new String[2];
+        Object[] lista4 = new Object[4];
+                    
         
         for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
             listaUsuarios.add(singletonDescarga.getUsuarios(i));
@@ -197,6 +257,14 @@ public class Sesion extends javax.swing.JFrame {
              
         for(int i=0; i<singletonDescarga.getSizeComentarios(); i++){
             listaComentarios.add(singletonDescarga.getComentario(i));
+        }
+        
+        for(int i=0; i<singletonDescarga.getSizeAlbumes(); i++){
+            listaAlbumes.add(singletonDescarga.getAlbum(i));
+        }
+        
+        for(int i=0; i<singletonDescarga.getSizeFotos(); i++){
+            listaFotos.add(singletonDescarga.getFoto(i));
         }
       
         for(int i=0; i<20; i++){
@@ -213,12 +281,44 @@ public class Sesion extends javax.swing.JFrame {
         }
         
         for(int i=0; i<20; i++){
-            if(id==listaPublicaciones.get(i).getId()){
+            if(id==listaComentarios.get(i).getId()){
                 lista2[0] = ""+listaComentarios.get(i).getPost_id();
                 lista2[1] = listaComentarios.get(i).getName();
                 lista2[2] = listaComentarios.get(i).getEmail();
                 lista2[3] = listaComentarios.get(i).getBody();
                 modeloComentarios.addRow(lista2);
+            }
+        }
+        
+        for(int i=0; i<20; i++){
+            if(id==listaAlbumes.get(i).getId()){
+                lista3[0] = ""+listaAlbumes.get(i).getUser_id();
+                lista3[1] = listaAlbumes.get(i).getTitle();
+                modeloAlbums.addRow(lista3);
+            }
+        }
+        
+        for(int i=0; i<20; i++){
+            if(id==listaFotos.get(i).getId()){
+                lista4[0] = ""+listaFotos.get(i).getAlbum_id();
+                lista4[1] = listaFotos.get(i).getTitle();
+                lista4[2] = listaFotos.get(i).getUrl();
+                lista4[3] = listaFotos.get(i).getThumbnail();
+                modeloFotos.addRow(lista4);
+                Image imagen = null;
+                try {
+                    URL url = new URL("https://lorempixel.com/150/150/abstract/?76583");
+                    
+                    try {
+                        imagen = ImageIO.read(url);
+                    } catch (IOException ex) {
+                        Logger.getLogger(Sesion.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    jLabel11.setIcon(new ImageIcon(imagen));
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(Sesion.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         }
         
@@ -248,7 +348,6 @@ public class Sesion extends javax.swing.JFrame {
                 fila[9] = listaUsuarios.get(i).getWebsite();
             modeloUsuarios.addRow(fila);
         }
-            
         jButton2.disable();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -296,6 +395,9 @@ public class Sesion extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -303,15 +405,20 @@ public class Sesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 

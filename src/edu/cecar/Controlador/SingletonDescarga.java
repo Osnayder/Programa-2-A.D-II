@@ -1,16 +1,18 @@
 package edu.cecar.Controlador;
 
 
-import us.monoid.json.JSONArray;
-import us.monoid.json.JSONException;
-import us.monoid.json.JSONObject;
-import us.monoid.web.Resty;
 import edu.cecar.Modelo.Album;
 import edu.cecar.Modelo.Comentario;
 import edu.cecar.Modelo.Foto;
 import edu.cecar.Modelo.Publicacion;
 import edu.cecar.Modelo.Usuario;
 import java.io.IOException;
+import us.monoid.json.JSONArray;
+import us.monoid.json.JSONException;
+import us.monoid.json.JSONObject;
+import us.monoid.web.Resty;
+
+
 
 /** Clase: SingletonDescarga
  * 
