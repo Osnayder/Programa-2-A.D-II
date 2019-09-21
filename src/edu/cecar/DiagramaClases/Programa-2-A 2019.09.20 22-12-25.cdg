@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Programa-2-A">
+  <ClassDiagramComponents>
+    <Class name="SingletonDescarga" package="edu.cecar.Controlador" visibility="public" xPosition="199.0" yPosition="316.0">
+      <Fields>
+        <Field name="json" type="JSONObject" visibility="private"/>
+        <Field name="jsonArrayResultU" type="JSONArray" visibility="private"/>
+        <Field name="jsonArrayResultC" type="JSONArray" visibility="private"/>
+        <Field name="jsonArrayResultP" type="JSONArray" visibility="private"/>
+        <Field name="jsonArrayResultA" type="JSONArray" visibility="private"/>
+        <Field name="jsonArrayResultF" type="JSONArray" visibility="private"/>
+        <Field name="sizeUsuarios" type="int" visibility="private"/>
+        <Field name="sizeComentarios" type="int" visibility="private"/>
+        <Field name="sizePublicaciones" type="int" visibility="private"/>
+        <Field name="sizeAlbumes" type="int" visibility="private"/>
+        <Field name="sizeFotos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getUsuarios" returnType="Usuario" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getAlbum" returnType="Album" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getPublicacion" returnType="Publicacion" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getFoto" returnType="Foto" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getComentario" returnType="Comentario" visibility="public">
+          <Argument type="int" name="i"/>
+        </Method>
+        <Method name="getSizeUsuarios" returnType="int" visibility="public"/>
+        <Method name="getSizeComentarios" returnType="int" visibility="public"/>
+        <Method name="getSizePublicaciones" returnType="int" visibility="public"/>
+        <Method name="getSizeAlbumes" returnType="int" visibility="public"/>
+        <Method name="getSizeFotos" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Album" package="edu.cecar.Modelo" visibility="public" xPosition="458.0" yPosition="-3.0">
+      <Fields>
+        <Field name="id" type="int" visibility="package"/>
+        <Field name="user_id" type="int" visibility="package"/>
+        <Field name="title" type="String" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getUser_id" returnType="int" visibility="public"/>
+        <Method name="setUser_id" returnType="void" visibility="public">
+          <Argument type="int" name="user_id"/>
+        </Method>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Comentario" package="edu.cecar.Modelo" visibility="public" xPosition="503.0" yPosition="817.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="post_id" type="int" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="body" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getPost_id" returnType="int" visibility="public"/>
+        <Method name="setPost_id" returnType="void" visibility="public">
+          <Argument type="int" name="post_id"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getBody" returnType="String" visibility="public"/>
+        <Method name="setBody" returnType="void" visibility="public">
+          <Argument type="String" name="body"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Foto" package="edu.cecar.Modelo" visibility="public" xPosition="669.0" yPosition="211.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="album_id" type="int" visibility="private"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="url" type="String" visibility="private"/>
+        <Field name="thumbnail" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAlbum_id" returnType="int" visibility="public"/>
+        <Method name="setAlbum_id" returnType="void" visibility="public">
+          <Argument type="int" name="album_id"/>
+        </Method>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getUrl" returnType="String" visibility="public"/>
+        <Method name="setUrl" returnType="void" visibility="public">
+          <Argument type="String" name="url"/>
+        </Method>
+        <Method name="getThumbnail" returnType="String" visibility="public"/>
+        <Method name="setThumbnail" returnType="void" visibility="public">
+          <Argument type="String" name="thumbnail"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Publicacion" package="edu.cecar.Modelo" visibility="public" xPosition="721.0" yPosition="595.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="user_id" type="int" visibility="private"/>
+        <Field name="title" type="String" visibility="private"/>
+        <Field name="body" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getUser_id" returnType="int" visibility="public"/>
+        <Method name="setUser_id" returnType="void" visibility="public">
+          <Argument type="int" name="user_id"/>
+        </Method>
+        <Method name="getTitle" returnType="String" visibility="public"/>
+        <Method name="setTitle" returnType="void" visibility="public">
+          <Argument type="String" name="title"/>
+        </Method>
+        <Method name="getBody" returnType="String" visibility="public"/>
+        <Method name="setBody" returnType="void" visibility="public">
+          <Argument type="String" name="body"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="edu.cecar.Modelo" visibility="public" xPosition="237.0" yPosition="984.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="firt_name" type="String" visibility="private"/>
+        <Field name="last_name" type="String" visibility="private"/>
+        <Field name="gender" type="String" visibility="private"/>
+        <Field name="dob" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="phone" type="String" visibility="private"/>
+        <Field name="website" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+        <Field name="status" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getFirt_name" returnType="String" visibility="public"/>
+        <Method name="setFirt_name" returnType="void" visibility="public">
+          <Argument type="String" name="firt_name"/>
+        </Method>
+        <Method name="getLast_name" returnType="String" visibility="public"/>
+        <Method name="setLast_name" returnType="void" visibility="public">
+          <Argument type="String" name="last_name"/>
+        </Method>
+        <Method name="getGender" returnType="String" visibility="public"/>
+        <Method name="setGender" returnType="void" visibility="public">
+          <Argument type="String" name="gender"/>
+        </Method>
+        <Method name="getDob" returnType="String" visibility="public"/>
+        <Method name="setDob" returnType="void" visibility="public">
+          <Argument type="String" name="dob"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getPhone" returnType="String" visibility="public"/>
+        <Method name="setPhone" returnType="void" visibility="public">
+          <Argument type="String" name="phone"/>
+        </Method>
+        <Method name="getWebsite" returnType="String" visibility="public"/>
+        <Method name="setWebsite" returnType="void" visibility="public">
+          <Argument type="String" name="website"/>
+        </Method>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="getStatus" returnType="String" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="String" name="status"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Principal" package="edu.cecar.Vista" visibility="public" xPosition="1835.0" yPosition="44.0">
+      <Fields>
+        <Field name="usuario" type="String" visibility="private"/>
+        <Field name="contrasena" type="String" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPasswordField1" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jTextField1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sesion" package="edu.cecar.Vista" visibility="public" xPosition="1137.0" yPosition="44.0">
+      <Fields>
+        <Field name="singletonDescarga" type="SingletonDescarga" visibility="private"/>
+        <Field name="listaUsuarios" type="ArrayList&lt;Usuario&gt;" visibility="private"/>
+        <Field name="listaComentarios" type="ArrayList&lt;Comentario&gt;" visibility="private"/>
+        <Field name="listaPublicaciones" type="ArrayList&lt;Publicacion&gt;" visibility="private"/>
+        <Field name="listaAlbumes" type="ArrayList&lt;Album&gt;" visibility="private"/>
+        <Field name="listaFotos" type="ArrayList&lt;Foto&gt;" visibility="private"/>
+        <Field name="datos" type="Object[][]" visibility="package"/>
+        <Field name="datos1" type="Object[][]" visibility="package"/>
+        <Field name="datos2" type="Object[][]" visibility="package"/>
+        <Field name="datos3" type="Object[][]" visibility="package"/>
+        <Field name="datos4" type="Object[][]" visibility="package"/>
+        <Field name="cPublicacaiones" type="String[]" visibility="package"/>
+        <Field name="cUsuarios" type="String[]" visibility="package"/>
+        <Field name="cComentarios" type="String[]" visibility="package"/>
+        <Field name="cAlbumes" type="String[]" visibility="package"/>
+        <Field name="cFotos" type="String[]" visibility="package"/>
+        <Field name="modeloPublicaciones" type="DefaultTableModel" visibility="package"/>
+        <Field name="modeloComentarios" type="DefaultTableModel" visibility="package"/>
+        <Field name="modeloUsuarios" type="DefaultTableModel" visibility="package"/>
+        <Field name="modeloAlbums" type="DefaultTableModel" visibility="package"/>
+        <Field name="modeloFotos" type="DefaultTableModel" visibility="package"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jComboBox1" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel10" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel11" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel12" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel9" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane2" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane4" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane5" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jTabbedPane1" type="javax.swing.JTabbedPane" visibility="private"/>
+        <Field name="jTable1" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable2" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable3" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable4" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTable5" type="javax.swing.JTable" visibility="private"/>
+        <Field name="jTextField1" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jTextField1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="edu.cecar.Controlador.SingletonDescarga" target="edu.cecar.Modelo.Publicacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="edu.cecar.Controlador.SingletonDescarga" target="edu.cecar.Modelo.Foto" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="singletonDescarga" source="edu.cecar.Vista.Sesion" target="edu.cecar.Controlador.SingletonDescarga" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaFotos" source="edu.cecar.Vista.Sesion" target="edu.cecar.Modelo.Foto" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Foto&gt;"/>
+    <UseRelation source="edu.cecar.Controlador.SingletonDescarga" target="edu.cecar.Modelo.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="listaAlbumes" source="edu.cecar.Vista.Sesion" target="edu.cecar.Modelo.Album" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Album&gt;"/>
+    <HasRelation name="listaUsuarios" source="edu.cecar.Vista.Sesion" target="edu.cecar.Modelo.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Usuario&gt;"/>
+    <HasRelation name="listaComentarios" source="edu.cecar.Vista.Sesion" target="edu.cecar.Modelo.Comentario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Comentario&gt;"/>
+    <HasRelation name="listaPublicaciones" source="edu.cecar.Vista.Sesion" target="edu.cecar.Modelo.Publicacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Publicacion&gt;"/>
+    <UseRelation source="edu.cecar.Controlador.SingletonDescarga" target="edu.cecar.Modelo.Comentario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="edu.cecar.Controlador.SingletonDescarga" target="edu.cecar.Modelo.Album" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

@@ -1,6 +1,18 @@
 package edu.cecar.Vista;
 
-import static com.sun.webkit.graphics.WCImage.getImage;
+/** Clase: Sesion
+ * 
+ * @version: 0.1
+ *  
+ * @sincelejo: 15/09/2019
+ * 
+ * Fecha de Modificación: 
+ * 
+ * @author: Osnayder Conde Rodriguez
+ * 
+ * Copyrigth: CECAR
+ */
+
 import edu.cecar.Controlador.SingletonDescarga;
 import edu.cecar.Modelo.Album;
 import edu.cecar.Modelo.Comentario;
@@ -17,9 +29,7 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,6 +47,7 @@ public class Sesion extends javax.swing.JFrame {
     public Sesion() {    
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
+        this.setIconImage (new ImageIcon(getClass().getResource("/edu/cecar/Recursos/Icono.png")).getImage());
     }
         
         Object[][] datos = {};
@@ -81,6 +92,7 @@ public class Sesion extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -90,9 +102,11 @@ public class Sesion extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sesion Sistema");
+        setTitle("Sistema de Información");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(null);
@@ -106,6 +120,7 @@ public class Sesion extends javax.swing.JFrame {
         jTextField1.setBounds(10, 12, 130, 30);
 
         jButton1.setText("Buscar");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -120,9 +135,14 @@ public class Sesion extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 70, 452, 150);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Nombre:");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(260, 10, 70, 30);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jPanel1.add(jLabel2);
         jLabel2.setBounds(340, 10, 130, 30);
 
@@ -172,6 +192,10 @@ public class Sesion extends javax.swing.JFrame {
         jLabel12.setText("Foto del Usuario");
         jPanel1.add(jLabel12);
         jLabel12.setBounds(630, 404, 100, 30);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(250, 10, 680, 30);
 
         jTabbedPane1.addTab("Busqueda", jPanel1);
 
@@ -232,9 +256,19 @@ public class Sesion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Listas", jPanel2);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 960, 680));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 960, 610));
 
-        setSize(new java.awt.Dimension(1016, 754));
+        jButton3.setBackground(new java.awt.Color(255, 0, 0));
+        jButton3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton3.setText("Cerrar Sesión");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 150, 30));
+
+        setSize(new java.awt.Dimension(1016, 696));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -348,12 +382,17 @@ public class Sesion extends javax.swing.JFrame {
                 fila[9] = listaUsuarios.get(i).getWebsite();
             modeloUsuarios.addRow(fila);
         }
-        jButton2.disable();
+        jButton2.setEnabled(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+       System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
     
@@ -393,6 +432,7 @@ public class Sesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -408,6 +448,7 @@ public class Sesion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

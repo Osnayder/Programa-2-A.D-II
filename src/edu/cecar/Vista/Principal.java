@@ -1,5 +1,19 @@
 package edu.cecar.Vista;
 
+/** Clase: Principal
+ * 
+ * @version: 0.1
+ *  
+ * @sincelejo: 15/09/2019
+ * 
+ * Fecha de Modificación: 
+ * 
+ * @author: Osnayder Conde Rodriguez
+ * 
+ * Copyrigth: CECAR
+ */
+
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -7,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        this.setIconImage (new ImageIcon(getClass().getResource("/edu/cecar/Recursos/Icono.png")).getImage());
     }
 
     @SuppressWarnings("unchecked")
@@ -24,7 +39,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Principal");
+        setTitle("Sistema de Información");
         setAlwaysOnTop(true);
         setLocation(new java.awt.Point(20, 100));
         setResizable(false);
