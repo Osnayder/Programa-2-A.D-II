@@ -218,6 +218,11 @@ public class Sesion extends javax.swing.JFrame {
         jComboBox1.setForeground(new java.awt.Color(0, 153, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Id", "Nombre", "Apellido", "Telefono" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jComboBox1);
         jComboBox1.setBounds(143, 10, 110, 30);
 
@@ -380,6 +385,7 @@ public class Sesion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String[] fila = new String[10];
         
+        
         if(listaUsuarios==null){
             listaUsuarios = new ArrayList<Usuario>();
             for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
@@ -405,7 +411,7 @@ public class Sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -413,40 +419,43 @@ public class Sesion extends javax.swing.JFrame {
        System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
-    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sesion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        String[] fila = new String[10];
+        jButton2.setEnabled(true);
+        /*
+        for(int i=0; i<20; i++){    
+          switch(listaUsuarios.get(1).getFirt_name().toLowerCase().charAt(0)){
+            case 'a': break;
+            case 'b': break;
+            case 'c': break;
+            case 'd': break;
+            case 'e': break;
+            case 'f': break;
+            case 'g': break;
+            case 'h': break;
+            case 'i': break;
+            case 'j': break;
+            case 'k': break;
+            case 'l': break;
+            case 'm': break;
+            case 'n': break;
+            case 'ñ': break;
+            case 'o': break;
+            case 'p': break;
+            case 'q': break;
+            case 'r': break;
+            case 's': break;
+            case 't': break;
+            case 'u': break;
+            case 'w': break;
+            case 'x': break;
+            case 'y': break;
+            case 'z': break;
         }
-        //</editor-fold>
+        }*/
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Sesion().setVisible(true);
-            }
-        });
-    }
-
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
