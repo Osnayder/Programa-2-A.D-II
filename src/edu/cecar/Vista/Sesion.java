@@ -38,11 +38,11 @@ public class Sesion extends javax.swing.JFrame {
 
     private SingletonDescarga singletonDescarga = new SingletonDescarga();
     
-    private ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-    private ArrayList<Comentario> listaComentarios     = new ArrayList<Comentario>();
-    private ArrayList<Publicacion> listaPublicaciones = new ArrayList<Publicacion>();
-    private ArrayList<Album> listaAlbumes = new ArrayList<Album>();
-    private ArrayList<Foto>   listaFotos = new ArrayList<Foto>();
+    private ArrayList<Usuario> listaUsuarios = null;
+    private ArrayList<Comentario> listaComentarios     = null;
+    private ArrayList<Publicacion> listaPublicaciones = null; 
+    private ArrayList<Album> listaAlbumes = null; 
+    private ArrayList<Foto>   listaFotos = null; 
     
     public Sesion() {    
         initComponents();
@@ -280,26 +280,41 @@ public class Sesion extends javax.swing.JFrame {
         String[] lista3 = new String[2];
         Object[] lista4 = new Object[4];
                     
-        
-        for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
-            listaUsuarios.add(singletonDescarga.getUsuarios(i));
+        if(listaUsuarios==null){
+            listaUsuarios = new ArrayList<Usuario>();
+            for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
+               listaUsuarios.add(singletonDescarga.getUsuarios(i));
+            }
         }
         
-        for(int i=0; i<singletonDescarga.getSizePublicaciones(); i++){
-            listaPublicaciones.add(singletonDescarga.getPublicacion(i));
-        }
-             
-        for(int i=0; i<singletonDescarga.getSizeComentarios(); i++){
-            listaComentarios.add(singletonDescarga.getComentario(i));
-        }
-        
-        for(int i=0; i<singletonDescarga.getSizeAlbumes(); i++){
-            listaAlbumes.add(singletonDescarga.getAlbum(i));
+        if (listaPublicaciones==null){
+            listaPublicaciones = new ArrayList<Publicacion>(); 
+            for(int i=0; i<singletonDescarga.getSizePublicaciones(); i++){
+                listaPublicaciones.add(singletonDescarga.getPublicacion(i));
+            }
         }
         
-        for(int i=0; i<singletonDescarga.getSizeFotos(); i++){
-            listaFotos.add(singletonDescarga.getFoto(i));
+        if(listaComentarios==null){
+            listaComentarios = new ArrayList<Comentario>();
+            for(int i=0; i<singletonDescarga.getSizeComentarios(); i++){
+                listaComentarios.add(singletonDescarga.getComentario(i));
+            }
         }
+        
+        if(listaAlbumes==null){
+            listaAlbumes =  new ArrayList<Album>(); 
+            for(int i=0; i<singletonDescarga.getSizeAlbumes(); i++){
+                listaAlbumes.add(singletonDescarga.getAlbum(i));
+            } 
+        }
+        
+        if(listaFotos==null){
+            listaFotos = new ArrayList<Foto>();
+            for(int i=0; i<singletonDescarga.getSizeFotos(); i++){
+                listaFotos.add(singletonDescarga.getFoto(i));
+            }
+        }
+        
       
         for(int i=0; i<20; i++){
             if(id==listaUsuarios.get(i).getId()){
@@ -365,9 +380,13 @@ public class Sesion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String[] fila = new String[10];
         
-        for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
+        if(listaUsuarios==null){
+            listaUsuarios = new ArrayList<Usuario>();
+            for(int i=0; i<singletonDescarga.getSizeUsuarios(); i++){
             listaUsuarios.add(singletonDescarga.getUsuarios(i));
+            }
         }
+        
         
         for(int i=0; i<listaUsuarios.size(); i++){
                 fila[0] = ""+listaUsuarios.get(i).getId();
